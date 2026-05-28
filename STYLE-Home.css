@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("InsideOutImages/Background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    overflow-x: hidden; 
+}
+
+.nav-bar {
+    position: relative;
+    margin: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav a {
+    
+    margin-left: 50px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav a.active {
+    position: relative;
+}
+
+.nav a.active::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+}
+
+.nav a:hover {
+    transform: translateY(-3px);
+}
+
+.nav a:nth-child(1):hover { color: #FFD082; }
+.nav a:nth-child(2):hover { color: #25A6E0; }
+.nav a:nth-child(3):hover { color: #6EB941; }
+.nav a:nth-child(4):hover { color: #B6240B; }
+.nav a:nth-child(5):hover { color: #B981DC; }
+
+.disney-logo img {
+    height: 60px;
+}
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 70px;
+}
+
+.main-text {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 120px;   
+    margin-top: -170px;    
+    align-items: flex-start;
+    animation: slideFromRight 1.3s ease forwards;
+}
+
+.insideout-logo {
+    width: 400px;
+    margin-bottom: 10px;
+    transform: translateY(-20px); 
+    animation: fadeInLogo 1.2s ease forwards;
+}
+
+.main-text p {
+    font-family: 'Patrick Hand';
+    font-size: 1.35rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 500px;
+}
+
+.main-text button {
+    padding: 10px 34px;
+    border: none;
+    border-radius: 30px;
+    background: #FFD082;
+    color: rgb(39, 38, 38);
+    font-size: 1.0rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse 2s infinite;
+}
+
+.main-text button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    animation: none;
+}
+
+.main-characters {
+    width: 45%;
+    margin-top: -140px; 
+    animation: slideFromLeft 1.3s ease forwards;
+}
+
+.main-characters img {
+    width: 125%;               
+    transform: translateX(-80px);
+}
+
+@keyframes fadeInLogo {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFromRight {
+    from { opacity: 0; transform: translateX(80px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideFromLeft {
+    from { opacity: 0; transform: translateX(-80px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(119, 124, 225, 0.6); }
+    70%  { box-shadow: 0 0 0 18px rgba(110,185,65,0); }
+    100% { box-shadow: 0 0 0 0 rgba(110,185,65,0); }
+}
+

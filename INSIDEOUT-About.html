@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inside Out | About</title>
+
+    <link rel="icon" type="image/x-icon" href="InsideOutImages/IconLogo.PNG">
+    <link rel="stylesheet" href="STYLE-About.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <?php
+    include("conn.php");
+    ?>
+</head>
+
+<body>
+
+<?php
+$page_id = 10;
+
+$query = mysqli_query($conn, "
+    SELECT * FROM tbl_content
+    WHERE page_id = $page_id
+    ORDER BY display_order ASC
+");
+?>
+
+<div class="nav-bar">
+    <div class="disney-logo">
+        <a href="https://www.apps.disneyplus.com/" target="_blank" rel="noopener">
+            <img src="InsideOutImages/DisneyPlusLogo.PNG" alt="DisneyPlus Logo">
+        </a>
+    </div>
+
+    <nav class="nav">
+        <a href="index.php">Home</a>
+        <a href="INSIDEOUT-About.php" class="active">About</a>
+        <a href="INSIDEOUT-Emotions.html">Emotions</a>
+        <a href="INSIDEOUT-Watch.html">Watch</a>
+        <a href="INSIDEOUT-Contact.php">Contact</a>
+    </nav>
+</div>
+
+<main class="about-content">
+
+<?php
+while($row = mysqli_fetch_array($query)) {
+
+    $title = $row['title'];
+    $description = $row['description'];
+    $image = $row['image'];
+?>
+
+    <section class="about-section">
+
+        <div class="about-text">
+
+            <?php if(!empty($title)) { ?>
+                <h2><?php echo $title; ?></h2>
+            <?php } ?>
+
+            <p><?php echo $description; ?></p>
+
+        </div>
+
+        <div class="about-image">
+            <img src="uploads/<?php echo $image; ?>" alt="<?php echo $title; ?>">
+        </div>
+
+    </section>
+
+<?php } ?>
+
+</main>
+
+<footer class="footer">
+    <div class="left-footer">
+        <div class="footer-logos">
+            <a href="index.html"><img src="InsideOutImages/InsideOutLogoBlack.png"></a>
+            <a href="https://www.disney.ph/" target="_blank"><img src="InsideOutImages/DisneyLogo.png"></a>
+            <a href="https://www.pixar.com/" target="_blank"><img src="InsideOutImages/PixarLogo.png"></a>
+        </div>
+        <p class="footer-credits">© 2025 Disney | Disney/Pixar</p>
+    </div>
+
+    <div class="center-footer">
+        <a href="INSIDEOUT-Emotions.html">
+            <img src="InsideOutImages/Characters3.PNG">
+        </a>
+    </div>
+
+    <div class="right-footer">
+        <h3>Stay Connected!</h3>
+        <div class="socialmedia-icons">
+            <a href="https://www.facebook.com/Disney"><img src="InsideOutImages/FacebookLogo.PNG"></a>
+            <a href="https://www.instagram.com/Disney"><img src="InsideOutImages/InstagramLogo.PNG"></a>
+            <a href="https://www.pinterest.com/Disney"><img src="InsideOutImages/PinterestLogo.PNG"></a>
+            <a href="https://twitter.com/Disney"><img src="InsideOutImages/XLogo.PNG"></a>
+            <a href="https://www.youtube.com/Disney"><img src="InsideOutImages/YouTubeLogo.PNG"></a>
+        </div>
+    </div>
+</footer>
+
+<script src="JS_About.js"></script>
+
+</body>
+</html>

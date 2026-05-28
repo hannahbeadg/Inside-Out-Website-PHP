@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("InsideOutImages/Background.jpg") center/cover no-repeat;
+    z-index: -1;
+    filter: brightness(0.40);
+}
+
+.nav-bar {
+    position: relative;
+    margin: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav a {
+    
+    margin-left: 50px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav a.active {
+    position: relative;
+}
+
+.nav a.active::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+}
+
+.nav a:hover {
+    transform: translateY(-3px);
+}
+
+.nav a:nth-child(1):hover { color: #FFD082; }
+.nav a:nth-child(2):hover { color: #25A6E0; }
+.nav a:nth-child(3):hover { color: #6EB941; }
+.nav a:nth-child(4):hover { color: #B6240B; }
+.nav a:nth-child(5):hover { color: #B981DC; }
+
+.disney-logo img {
+    height: 60px;
+}
+
+.main-characters {
+    position: relative;
+    top: 30px;
+    left: 750px;
+    bottom: 0;
+    width: 520px;
+    z-index: -1;
+    opacity: 0.95;
+}
+
+.main-characters img {
+    width: 150%;
+    height: auto;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    padding-left: 120px;
+    padding-top: 40px;
+    padding-bottom: 140px;
+}
+
+.form-table {
+    width: 700px;
+    max-width: 90%;
+    padding: 45px 50px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+    animation: fadeUp 1s ease forwards;
+    margin-top: -610px;
+}
+
+.form-table h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffd082;
+}
+
+.subtitle {
+    font-family: 'Patrick Hand';
+    font-size: 1.3rem;
+    opacity: 0.85;
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0 18px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-family: 'Patrick Hand';
+    font-size: 0.95rem;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+input[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 22px;
+    border: none;
+    background: #ffff;
+    color: #444;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: #444;
+    color: #ffff;
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;         
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    position: relative;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    max-width: 90%;
+    color: white;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.close:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.modal-content h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-family: 'Patrick Hand', cursive;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
